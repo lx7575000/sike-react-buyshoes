@@ -1,0 +1,383 @@
+@import "normalize.css";
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body,
+div,
+span,
+a,
+img,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-shrink: 0;
+    align-content: flex-start;
+    border: 0 solid black;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    position: relative;
+}
+
+body {
+    background-color: #F7F8FA;
+    /*background-color: #FFFFFF;*/
+    color: #202020;
+    font-family: "Avenir Next", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 100;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 100;
+}
+
+p {
+    font-size: 16px;
+}
+
+a {
+    font-weight: 400;
+}
+
+
+/*a:hover {
+  font-weight: 400;
+  color: #DADADA;
+  text-decoration: none;
+}
+*/
+
+
+/*MAIN LAYOUT CSS*/
+
+.site {
+    display: flex;
+    flex-direction: row;
+}
+
+.site__main {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 170px;
+}
+
+.site__left-sidebar {
+    flex-basis: auto;
+    flex-grow: 0;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 170px;
+    height: 100%;
+    background-color: #AEFAB0;
+}
+
+.site__right-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 2%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    /*width: 30%;*/
+    background-image: linear-gradient(to bottom, rgba(192, 207, 221, 1), rgba(255, 255, 255, 0.1));
+}
+
+.cart {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.site__content {
+    width: 100%;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.product {
+    width: 50%;
+    /*height: 250px;*/
+    /*background-color: green;*/
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.cart {
+    overflow: scroll;
+}
+
+.cart__title {
+    position: fixed;
+    height: 30px;
+    z-index: 999;
+}
+
+.cart__content {
+    margin-top: 30px;
+}
+
+.cart-item {
+    height: 150px;
+    margin-bottom: 20px;
+    background: rgba(0, 255, 0, 0.3);
+}
+
+.checkout {
+    height: 300px;
+    background: rgba(0, 0, 255, 0.3);
+}
+
+.product__add {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #77A2C5;
+    margin: 30px auto;
+}
+
+.product__add__icon {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.product__description {
+    display: flex;
+    flex-direction: row;
+}
+
+.product__price {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.product__name {
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.cart-item__top-part {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-item__image {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.cart-item__image img {
+    width: 100%;
+    z-index: 1;
+}
+
+.cart-item__top-part__middle {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 5%;
+}
+
+.cart-item__price {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.adjust-qty {
+    display: flex;
+    flex-direction: row;
+    width: 33.3%;
+    margin-left: 10%;
+}
+
+.adjust-qty__button {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.adjust-qty__number {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.checkout__amount__discount {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+}
+
+.checkout__amount__discount--description {
+    flex-grow: 1;
+}
+
+.checkout__amount__discount--number {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.checkout__amount__subtotal {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+}
+
+.checkout__amout__subtotal--description {
+    flex-grow: 1;
+}
+
+.checkout__amount__subtotal--strikeout {
+    text-decoration: line-through;
+    text-align: right;
+}
+
+.checkout__amount__subtotal--saving {
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+    text-align: right;
+}
+
+.checkout__coupon-input {
+    margin: 5px 10px;
+}
+
+
+.site__right-sidebar-toggle {
+    /*display: block;*/
+    position: fixed;
+    bottom: 0;
+    right: -100px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(30, 36, 56);
+
+    transform: rotate(180deg);
+}
+
+.site__right-sidebar-toggle img {
+    padding-top: 2.5px;
+}
+
+.site__right-sidebar-toggle:hover {
+  cursor: pointer;
+}
+
+
+/*MEDIA ADJUST CSS*/
+
+@media (max-width: 800px) {
+    .site__right-sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        padding: 2%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        /*width: 30%;*/
+        background-image: linear-gradient(to bottom, rgba(192, 207, 221, 1), rgba(255, 255, 255, 0.1));
+    }
+    .site__main {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        padding-left: 170px;
+    }
+    .product {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site__right-sidebar{
+      display: none;
+    }
+    body.js-show-right-sidebar .site__right-sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 2px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        /*width: 30%;*/
+        background-image: linear-gradient(to bottom, rgba(192, 207, 221, 1), rgba(255, 255, 255, 0.1));
+    }
+    .site__main {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        /*padding-left: 170px;*/
+    }
+    .site__content {
+        position: absolute;
+        width: 100%;
+        margin-left: 0;
+    }
+    .site__left-sidebar {
+        display: none;
+    }
+    .site__right-sidebar-toggle {
+        /*display: block;*/
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(30, 36, 56);
+    }
+
+    body.js-show-right-sidebar .site__right-sidebar-toggle{
+        position: fixed;
+        bottom: 2px;
+        right: 80%;
+        width: 40px;
+        height: 40px;
+        margin-right: -2px;
+        background-color: rgb(30, 36, 56);
+        transform: rotate(180deg);
+    }
+    .site__right-sidebar-toggle img {
+        padding: 2.5px;
+    }
+}
+
+
