@@ -1,0 +1,21 @@
+.PHONY: css
+css:
+	mkdir -p bundle
+	postcss --watch --use autoprefixer --use postcss-import css/app.css --output bundle/app.css
+
+.PHONY: server
+server:
+	browser-sync start --server --files='index.html,bundle/app.css,js/app.js'
+
+
+.PHONY: clean
+clean:
+	rm -r bundle
+
+.PHONY: build
+build:
+	babel --watch js/app.jsx --out-file build/app.js
+
+.PHONY: dev
+dev:
+	make css & make build &make server
