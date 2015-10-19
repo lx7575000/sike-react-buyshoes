@@ -12,6 +12,20 @@ server:
 clean:
 	rm -r bundle
 
+<<<<<<< HEAD
 .PHONY: dev
 dev:
 	make css & make server
+=======
+.PHONY: build
+build:
+	webpack --watch -d --progress js/app.js build/app.js --module-bind "js=babel" --display-error-details --colors
+
+.PHONY: js
+js:
+
+
+.PHONY: dev
+dev:
+	(make css & make build & make server & wait)
+>>>>>>> styled
