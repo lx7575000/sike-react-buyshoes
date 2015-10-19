@@ -14,8 +14,12 @@ clean:
 
 .PHONY: build
 build:
-	babel --watch js/app.jsx --out-file build/app.js
+	webpack --watch -d --progress js/app.js build/app.js --module-bind "js=babel" --display-error-details --colors
+
+.PHONY: js
+js:
+
 
 .PHONY: dev
 dev:
-	make css & make build &make server
+	(make css & make build & make server & wait)
